@@ -29,7 +29,6 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -56,21 +55,8 @@ namespace Calculator
             this.rightBracketButton = new System.Windows.Forms.Button();
             this.leftBracketButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Menu;
-            this.textBox1.Location = new System.Drawing.Point(6, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "0";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(782, 45);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -230,6 +216,7 @@ namespace Calculator
             this.sqrtButton.TabIndex = 16;
             this.sqrtButton.Text = "SQRT";
             this.sqrtButton.UseVisualStyleBackColor = true;
+            this.sqrtButton.Click += new System.EventHandler(this.sqrtButton_Click);
             // 
             // percentageButton
             // 
@@ -273,12 +260,13 @@ namespace Calculator
             // 
             // mButton
             // 
+            this.mButton.BackColor = System.Drawing.Color.Red;
             this.mButton.Location = new System.Drawing.Point(555, 337);
             this.mButton.Name = "mButton";
             this.mButton.Size = new System.Drawing.Size(112, 34);
             this.mButton.TabIndex = 21;
             this.mButton.Text = "M";
-            this.mButton.UseVisualStyleBackColor = true;
+            this.mButton.UseVisualStyleBackColor = false;
             this.mButton.Click += new System.EventHandler(this.mButton_Click);
             // 
             // upButton
@@ -319,20 +307,33 @@ namespace Calculator
             // 
             // clearButton
             // 
-            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.clearButton.Location = new System.Drawing.Point(676, 184);
+            this.clearButton.BackColor = System.Drawing.Color.Green;
+            this.clearButton.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clearButton.Location = new System.Drawing.Point(676, 213);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(112, 95);
+            this.clearButton.Size = new System.Drawing.Size(112, 42);
             this.clearButton.TabIndex = 26;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Text = "CRC";
+            this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.ForeColor = System.Drawing.Color.Blue;
+            this.textBox1.Location = new System.Drawing.Point(12, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(800, 47);
+            this.textBox1.TabIndex = 27;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(824, 440);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.leftBracketButton);
             this.Controls.Add(this.rightBracketButton);
@@ -359,7 +360,7 @@ namespace Calculator
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "Calculator";
             this.ResumeLayout(false);
@@ -368,8 +369,6 @@ namespace Calculator
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -396,6 +395,7 @@ namespace Calculator
         private System.Windows.Forms.Button rightBracketButton;
         private System.Windows.Forms.Button leftBracketButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
